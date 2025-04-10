@@ -123,22 +123,30 @@ const FileUploader = ({ onFileUpload }) => {
             <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
               or
             </p>
-            {/* Subtle value indicators with subliminal messaging */}
+            {/* Bernays-inspired value indicators with engineered consent messaging */}
             <div className="mt-2 flex items-center justify-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
               <div className="flex items-center">
-                <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1 opacity-80"></div>
-                <span className="opacity-80">Premium quality</span>
+                <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1 opacity-70"></div>
+                <span className="opacity-70">Premium quality</span>
               </div>
-              <span className="opacity-60">•</span>
+              <span className="opacity-50">•</span>
               <div className="flex items-center">
-                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-1 opacity-80"></div>
-                <span className="opacity-80">Supported by users</span>
+                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-1 opacity-70"></div>
+                <span className="opacity-70">Community maintained</span>
               </div>
             </div>
 
-            {/* Nearly invisible subliminal message */}
-            <div className="mt-1 text-[8px] text-gray-300 dark:text-gray-700 opacity-20 select-none pointer-events-none">
-              your support makes this possible
+            {/* Bernays-style identity framing - extremely subtle */}
+            <div className="mt-1 text-[7px] text-gray-400 dark:text-gray-600 opacity-30 select-none pointer-events-none">
+              <span className="relative">
+                join those who value quality
+                <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 text-[5px] text-gray-300 dark:text-gray-700 opacity-20">you deserve this</span>
+              </span>
+            </div>
+
+            {/* Nearly invisible emotional trigger */}
+            <div className="mt-0.5 text-[6px] text-gray-300 dark:text-gray-700 opacity-15 select-none pointer-events-none">
+              your contribution ensures continued excellence
             </div>
             <motion.button
               type="button"

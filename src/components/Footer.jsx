@@ -142,16 +142,37 @@ const Footer = () => {
                   &copy; {currentYear} AnyDoc2PDF. All rights reserved.
                 </p>
 
-                {/* Extremely subtle supporter message */}
-                <p className="text-xs text-gray-400 dark:text-gray-600 mt-1 opacity-60">
-                  <span className="inline-flex items-center">
-                    Community maintained
+                {/* Bernays-inspired social proof message */}
+                <p className="text-xs text-gray-400 dark:text-gray-600 mt-1 opacity-50">
+                  <span className="inline-flex items-center relative">
+                    <span className="relative">
+                      Maintained by patrons
+                      <span className="absolute -top-2 left-1/2 transform -translate-x-1/2 text-[5px] text-gray-400 dark:text-gray-600 opacity-30">join the distinguished few</span>
+                    </span>
+                    <span className="ml-1 opacity-40 text-[8px] text-blue-500 dark:text-blue-400">
+                      <a
+                        href="https://www.buymeacoffee.com/rorrimaesu"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:opacity-80 transition-opacity duration-300"
+                      >
+                        • become one
+                      </a>
+                    </span>
                   </span>
                 </p>
 
-                {/* Nearly invisible subliminal message */}
-                <p className="text-[7px] text-gray-300 dark:text-gray-700 opacity-20 select-none pointer-events-none mt-0.5">
-                  your support ensures continued quality and availability
+                {/* Bernays-style identity framing */}
+                <p className="text-[7px] text-gray-400 dark:text-gray-600 opacity-25 select-none pointer-events-none mt-0.5">
+                  <span className="relative">
+                    supporters are essential to our mission
+                    <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-[5px] text-gray-300 dark:text-gray-700 opacity-20">you can make a difference</span>
+                  </span>
+                </p>
+
+                {/* Nearly invisible emotional trigger */}
+                <p className="text-[6px] text-gray-300 dark:text-gray-700 opacity-15 select-none pointer-events-none mt-0.5">
+                  your generosity enables us to serve everyone regardless of means
                 </p>
               </div>
             </div>

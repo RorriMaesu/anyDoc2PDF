@@ -112,17 +112,28 @@ const PDFConverter = ({ file, onConvert, isConverting }) => {
                   <span className="mx-2">•</span>
                   <span>{file.type || 'Unknown type'}</span>
 
-                  {/* Extremely subtle supporter indicator - barely noticeable */}
-                  <div className="ml-3 opacity-40" style={{ fontSize: '0.65rem' }}>
-                    <span className="text-gray-400 dark:text-gray-600">
-                      community supported
+                  {/* Bernays-inspired status indicator - creates social identity */}
+                  <div className="ml-3 opacity-35" style={{ fontSize: '0.65rem' }}>
+                    <span className="text-gray-400 dark:text-gray-600 relative">
+                      <span className="relative">
+                        patron supported
+                        <span className="absolute -top-2 left-1/2 transform -translate-x-1/2 text-[4px] text-gray-400 dark:text-gray-600 opacity-30">join the community</span>
+                      </span>
                     </span>
                   </div>
                 </div>
 
-                {/* Nearly invisible quality indicator */}
-                <div className="mt-0.5 text-[7px] text-gray-300 dark:text-gray-700 opacity-20 select-none pointer-events-none">
-                  premium conversion quality enabled by supporters
+                {/* Bernays-style reciprocity framing */}
+                <div className="mt-0.5 text-[7px] text-gray-400 dark:text-gray-600 opacity-25 select-none pointer-events-none">
+                  <span className="relative">
+                    premium conversion quality
+                    <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-[5px] text-gray-300 dark:text-gray-700 opacity-20">made possible by supporters like you</span>
+                  </span>
+                </div>
+
+                {/* Nearly invisible emotional trigger */}
+                <div className="mt-1 text-[6px] text-gray-300 dark:text-gray-700 opacity-15 select-none pointer-events-none">
+                  your contribution ensures this remains available to everyone
                 </div>
               </div>
 

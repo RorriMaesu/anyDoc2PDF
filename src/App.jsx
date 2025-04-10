@@ -11,6 +11,9 @@ import BuyMeCoffee from './components/BuyMeCoffee'
 import SubliminalPriming from './components/SubliminalPriming'
 import AttentionGuide from './components/AttentionGuide'
 import ValueAnchoring from './components/ValueAnchoring'
+import BernaysPriming from './components/BernaysPriming'
+import VisualFraming from './components/VisualFraming'
+import LinguisticFraming from './components/LinguisticFraming'
 
 function App() {
   const [file, setFile] = useState(null)
@@ -203,6 +206,9 @@ function App() {
             <SubliminalPriming />
             <AttentionGuide />
             <ValueAnchoring />
+            <BernaysPriming />
+            <VisualFraming />
+            <LinguisticFraming />
           </motion.div>
         ) : (
           <motion.div
@@ -290,6 +296,9 @@ function App() {
             <SubliminalPriming />
             <AttentionGuide />
             <ValueAnchoring />
+            <BernaysPriming />
+            <VisualFraming />
+            <LinguisticFraming />
           </motion.div>
         )}
       </AnimatePresence>
