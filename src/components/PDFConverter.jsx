@@ -139,8 +139,31 @@ const PDFConverter = ({ file, onConvert, isConverting }) => {
 
               <motion.button
                 type="button"
-                onClick={onConvert}
-                className={`mt-4 sm:mt-0 btn ${isConverting ? 'btn-outline' : 'btn-primary'} sm:self-start`}
+                onClick={(e) => {
+                  if (!isConverting) {
+                    // Add a ripple effect when the button is clicked
+                    const button = e.currentTarget;
+                    const circle = document.createElement('span');
+                    const diameter = Math.max(button.clientWidth, button.clientHeight);
+                    const radius = diameter / 2;
+
+                    circle.style.width = circle.style.height = `${diameter}px`;
+                    circle.style.left = `${e.clientX - button.offsetLeft - radius}px`;
+                    circle.style.top = `${e.clientY - button.offsetTop - radius}px`;
+                    circle.classList.add('ripple');
+
+                    const ripple = button.getElementsByClassName('ripple')[0];
+                    if (ripple) {
+                      ripple.remove();
+                    }
+
+                    button.appendChild(circle);
+
+                    // Call the actual handler
+                    onConvert();
+                  }
+                }}
+                className={`mt-4 sm:mt-0 btn ${isConverting ? 'btn-outline' : 'btn-primary'} sm:self-start button-press-effect`}
                 whileHover={isConverting ? {} : { scale: 1.05 }}
                 whileTap={isConverting ? {} : { scale: 0.95 }}
                 disabled={isConverting}

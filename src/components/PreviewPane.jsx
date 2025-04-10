@@ -15,6 +15,7 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
   const [pdfKey, setPdfKey] = useState(0) // Add a key to force re-render of PDF object
   const pdfContainerRef = useRef(null) // Add a ref to the PDF container for better zoom control
   const pdfViewerRef = useRef(null) // Add a ref to access the internal PDF viewer
+  const pdfPageRef = useRef(null) // Reference to the current PDF page for animations
 
   useEffect(() => {
     // Create a preview URL for the file
@@ -63,11 +64,28 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
   }, [file])
 
   useEffect(() => {
-    // Update zoom level for PDF viewer
+    // Update zoom level for PDF viewer with smooth transition
     if (pdfViewerRef.current) {
+      // Add a smooth transition for zoom changes
+      pdfViewerRef.current.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
       pdfViewerRef.current.style.transform = `scale(${zoomLevel / 100})`
       pdfViewerRef.current.style.transformOrigin = 'top center'
+
+      // Add a snap effect when zoom reaches certain levels
+      if (zoomLevel === 100) {
+        // Add a subtle snap effect at 100% zoom
+        pdfViewerRef.current.classList.add('zoom-snap-effect')
+        setTimeout(() => {
+          if (pdfViewerRef.current) {
+            pdfViewerRef.current.classList.remove('zoom-snap-effect')
+          }
+        }, 300)
+      }
     }
+
+    // Center the content after zoom changes
+    const centerTimer = setTimeout(() => centerPdfContent(), 50)
+    return () => clearTimeout(centerTimer)
   }, [zoomLevel])
 
   const handleDownload = async () => {
@@ -93,38 +111,98 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
     }
   }
 
+  // Function to center the PDF content in the viewport with snapping animation
+  const centerPdfContent = () => {
+    if (pdfContainerRef.current) {
+      // Smooth scroll to center of content with animation
+      pdfContainerRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+
+      // Add a snapping animation to the PDF viewer
+      if (pdfViewerRef.current) {
+        // Add the auto-center-snap class for animation
+        pdfViewerRef.current.classList.add('auto-center-snap')
+
+        // Remove the class after animation completes
+        setTimeout(() => {
+          if (pdfViewerRef.current) {
+            pdfViewerRef.current.classList.remove('auto-center-snap')
+          }
+        }, 300)
+      }
+    }
+  }
+
   // Effect to update PDF when page changes
   useEffect(() => {
     // Force re-render of PDF object when page changes
     setPdfKey(prevKey => prevKey + 1)
+
+    // Add a small delay to ensure the PDF has time to render before centering
+    const centerTimer = setTimeout(() => centerPdfContent(), 100)
+    return () => clearTimeout(centerTimer)
   }, [currentPage])
 
   // Function to handle zoom in
   const handleZoomIn = () => {
     setZoomLevel(prev => Math.min(prev + 25, 200))
+    // Add a small delay to ensure the zoom level has been updated
+    setTimeout(() => centerPdfContent(), 50)
   }
 
   // Function to handle zoom out
   const handleZoomOut = () => {
     setZoomLevel(prev => Math.max(prev - 25, 50))
+    // Add a small delay to ensure the zoom level has been updated
+    setTimeout(() => centerPdfContent(), 50)
   }
 
   // Function to reset zoom
   const handleZoomReset = () => {
     setZoomLevel(100)
+    // Add a small delay to ensure the zoom level has been updated
+    setTimeout(() => centerPdfContent(), 50)
   }
 
-  // Function to go to previous page
+  // Function to go to previous page with snapping animation
   const handlePrevPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(prev => prev - 1)
+      // Add a subtle animation effect before changing the page
+      if (pdfViewerRef.current) {
+        // Apply a subtle slide-out animation
+        pdfViewerRef.current.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
+        pdfViewerRef.current.style.transform = `scale(${zoomLevel / 100}) translateX(20px)`;
+        pdfViewerRef.current.style.opacity = '0.8';
+
+        // After the animation, change the page
+        setTimeout(() => {
+          setCurrentPage(prev => prev - 1);
+        }, 200);
+      } else {
+        setCurrentPage(prev => prev - 1);
+      }
     }
   }
 
-  // Function to go to next page
+  // Function to go to next page with snapping animation
   const handleNextPage = () => {
     if (currentPage < totalPages) {
-      setCurrentPage(prev => prev + 1)
+      // Add a subtle animation effect before changing the page
+      if (pdfViewerRef.current) {
+        // Apply a subtle slide-out animation
+        pdfViewerRef.current.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
+        pdfViewerRef.current.style.transform = `scale(${zoomLevel / 100}) translateX(-20px)`;
+        pdfViewerRef.current.style.opacity = '0.8';
+
+        // After the animation, change the page
+        setTimeout(() => {
+          setCurrentPage(prev => prev + 1);
+        }, 200);
+      } else {
+        setCurrentPage(prev => prev + 1);
+      }
     }
   }
 
@@ -215,7 +293,7 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
           <motion.button
             onClick={handlePrevPage}
             disabled={currentPage <= 1 || isConverting}
-            className={`p-2 rounded-full ${
+            className={`p-2 rounded-full button-press-effect ${
               currentPage <= 1 || isConverting
                 ? 'opacity-40 cursor-not-allowed'
                 : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200'} transition-colors`
@@ -236,7 +314,7 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
           <motion.button
             onClick={handleNextPage}
             disabled={currentPage >= totalPages || isConverting}
-            className={`p-2 rounded-full ${
+            className={`p-2 rounded-full button-press-effect ${
               currentPage >= totalPages || isConverting
                 ? 'opacity-40 cursor-not-allowed'
                 : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200'} transition-colors`
@@ -256,7 +334,7 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
           <motion.button
             onClick={handleZoomOut}
             disabled={zoomLevel <= 50 || isConverting}
-            className={`p-2 rounded-full ${
+            className={`p-2 rounded-full button-press-effect ${
               zoomLevel <= 50 || isConverting
                 ? 'opacity-40 cursor-not-allowed'
                 : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200'} transition-colors`
@@ -277,7 +355,7 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
           <motion.button
             onClick={handleZoomReset}
             disabled={zoomLevel === 100 || isConverting}
-            className={`text-xs px-2 py-1 rounded ${
+            className={`text-xs px-2 py-1 rounded button-press-effect ${
               zoomLevel === 100 || isConverting
                 ? 'opacity-40 cursor-not-allowed'
                 : `${darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-blue-50 text-blue-700 hover:bg-blue-100'} transition-colors`
@@ -292,7 +370,7 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
           <motion.button
             onClick={handleZoomIn}
             disabled={zoomLevel >= 200 || isConverting}
-            className={`p-2 rounded-full ${
+            className={`p-2 rounded-full button-press-effect ${
               zoomLevel >= 200 || isConverting
                 ? 'opacity-40 cursor-not-allowed'
                 : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200'} transition-colors`
@@ -380,23 +458,30 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
               >
                 <object
                   key={pdfKey}
-                  ref={pdfObjectRef}
+                  ref={(el) => {
+                    pdfObjectRef.current = el;
+                    pdfPageRef.current = el;
+                  }}
                   data={`${previewUrl}#page=${currentPage}`}
                   type="application/pdf"
-                  className="w-full"
+                  className="w-full pdf-page-object"
                   style={{
                     height: 'calc(100vh - 190px)',
                     display: 'block',
                     border: darkMode ? '1px solid rgba(75, 85, 99, 0.2)' : '1px solid rgba(229, 231, 235, 0.5)',
                     borderRadius: '0.375rem',
                     boxShadow: darkMode ? '0 4px 6px -1px rgba(0, 0, 0, 0.2)' : '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                    transition: 'opacity 0.2s ease-out',
                   }}
                   aria-label="PDF Preview"
-                  onLoad={(e) => {
+                  onLoad={() => {
                     // This ensures zoom works properly after PDF loads
                     if (pdfViewerRef.current) {
                       pdfViewerRef.current.style.transform = `scale(${zoomLevel / 100})`;
+                      pdfViewerRef.current.style.opacity = '1';
                     }
+                    // Center the content after loading
+                    centerPdfContent();
                   }}
                 >
                   <div className="flex items-center justify-center h-full p-8">

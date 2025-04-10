@@ -150,10 +150,31 @@ const FileUploader = ({ onFileUpload }) => {
             </div>
             <motion.button
               type="button"
-              className="mt-2 btn btn-primary"
+              className="mt-2 btn btn-primary button-press-effect"
               whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={handleButtonClick}
+              whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                // Add a ripple effect when the button is clicked
+                const button = e.currentTarget;
+                const circle = document.createElement('span');
+                const diameter = Math.max(button.clientWidth, button.clientHeight);
+                const radius = diameter / 2;
+
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${e.clientX - button.offsetLeft - radius}px`;
+                circle.style.top = `${e.clientY - button.offsetTop - radius}px`;
+                circle.classList.add('ripple');
+
+                const ripple = button.getElementsByClassName('ripple')[0];
+                if (ripple) {
+                  ripple.remove();
+                }
+
+                button.appendChild(circle);
+
+                // Call the actual handler
+                handleButtonClick();
+              }}
             >
               Browse Files
             </motion.button>
