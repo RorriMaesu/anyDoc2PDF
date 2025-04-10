@@ -7,6 +7,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import AnimatedBackground from './components/AnimatedBackground'
 import FeatureShowcase from './components/FeatureShowcase'
+import BuyMeCoffee from './components/BuyMeCoffee'
 
 function App() {
   const [file, setFile] = useState(null)
@@ -195,6 +196,7 @@ function App() {
             </main>
 
             <Footer />
+            <BuyMeCoffee />
           </motion.div>
         ) : (
           <motion.div
@@ -278,6 +280,7 @@ function App() {
                 <p>© {new Date().getFullYear()} AnyDoc2PDF • Premium Document Conversion</p>
               </div>
             </footer>
+            <BuyMeCoffee />
           </motion.div>
         )}
       </AnimatePresence>
