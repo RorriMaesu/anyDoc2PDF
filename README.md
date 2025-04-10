@@ -5,6 +5,13 @@
 [![Buy Me A Coffee](https://img.shields.io/badge/Support%20this%20project-Buy%20Me%20A%20Coffee-yellow.svg)](https://www.buymeacoffee.com/rorrimaesu)
 
 <div align="center">
+
+  ## [🚀 Try Live Demo](https://rorrimaesu.github.io/anyDoc2PDF/#try)
+  [![Live Demo](https://img.shields.io/badge/Live%20Demo-Try%20Now-blue?style=for-the-badge&logo=github&logoColor=white)](https://rorrimaesu.github.io/anyDoc2PDF/#try)
+
+</div>
+
+<div align="center">
   <a href="https://www.buymeacoffee.com/rorrimaesu" target="_blank">
     <img src="public/images/capitalismsucksbutiamsuperpassionateaboutbeingabletoaffordfood.png" alt="Buy Me A Coffee" width="200" />
   </a>

@@ -67,7 +67,7 @@ const Header = ({ darkMode: propDarkMode, toggleDarkMode: propToggleDarkMode }) 
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center">
-            <a href="/" className="flex items-center space-x-2">
+            <a href="#" onClick={(e) => e.preventDefault()} className="flex items-center space-x-2">
               <div className="relative w-8 h-8">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-lg opacity-80"></div>
                 <motion.svg
