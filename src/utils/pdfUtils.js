@@ -139,15 +139,15 @@ export const convertDocxToPDF = async (docFile) => {
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = html;
 
-          // Apply styling for better rendering with optimized space usage
+          // Apply styling for better rendering with proper spacing to prevent text cut-off
           tempDiv.style.width = '8.27in'; // A4 width
-          tempDiv.style.padding = '0.5in'; // Reduced padding for better space utilization
+          tempDiv.style.padding = '0.6in'; // Increased padding to prevent text cut-off
           tempDiv.style.backgroundColor = 'white';
           tempDiv.style.position = 'absolute';
           tempDiv.style.left = '-9999px';
           tempDiv.style.fontFamily = 'Arial, sans-serif';
-          tempDiv.style.lineHeight = '1.3'; // Reduced line height for better space usage
-          tempDiv.style.fontSize = '11pt'; // Slightly smaller font for better space usage
+          tempDiv.style.lineHeight = '1.4'; // Increased line height to prevent text cut-off
+          tempDiv.style.fontSize = '11pt'; // Maintain readable font size
           tempDiv.style.color = '#333';
 
           // Add CSS to ensure proper formatting
@@ -155,24 +155,26 @@ export const convertDocxToPDF = async (docFile) => {
           styleTag.textContent = `
             * { box-sizing: border-box; }
             body, html { margin: 0; padding: 0; }
-            h1, h2, h3, h4, h5, h6 { margin-top: 0.7em; margin-bottom: 0.3em; page-break-after: avoid; } /* Reduced heading margins */
-            h1 { font-size: 1.6em; color: #2c3e50; } /* Slightly smaller headings */
-            h2 { font-size: 1.4em; color: #34495e; }
-            h3 { font-size: 1.2em; color: #2c3e50; }
+            h1, h2, h3, h4, h5, h6 { margin-top: 1em; margin-bottom: 0.5em; page-break-after: avoid; } /* Increased heading margins */
+            h1 { font-size: 1.7em; color: #2c3e50; } /* Slightly larger headings for better readability */
+            h2 { font-size: 1.5em; color: #34495e; }
+            h3 { font-size: 1.3em; color: #2c3e50; }
             h4, h5, h6 { font-size: 1.1em; }
-            p { margin-bottom: 0.6em; text-align: justify; } /* Reduced paragraph margin */
-            img { max-width: 100%; height: auto; }
-            table.docx-table { width: 100%; border-collapse: collapse; margin: 0.7em 0; } /* Reduced table margin */
-            table.docx-table td, table.docx-table th { padding: 6px; border: 1px solid #ddd; } /* Reduced cell padding */
-            blockquote { margin: 0.7em 0; padding: 0.4em 0.8em; border-left: 4px solid #ccc; background: #f9f9f9; } /* Reduced blockquote spacing */
+            p { margin-bottom: 0.8em; text-align: justify; } /* Increased paragraph margin */
+            img { max-width: 95%; height: auto; } /* Slightly reduced max width to prevent overflow */
+            table.docx-table { width: 95%; border-collapse: collapse; margin: 1em 0; } /* Reduced width to prevent overflow */
+            table.docx-table td, table.docx-table th { padding: 8px; border: 1px solid #ddd; }
+            blockquote { margin: 1em 0; padding: 0.5em 1em; border-left: 4px solid #ccc; background: #f9f9f9; }
             blockquote.intense { border-left-color: #3498db; background: #ecf0f1; }
-            ul, ol { padding-left: 1.5em; margin-top: 0.4em; margin-bottom: 0.6em; } /* Reduced list margins and padding */
-            li { margin-bottom: 0.2em; } /* Reduced list item spacing */
+            ul, ol { padding-left: 2em; margin-top: 0.5em; margin-bottom: 0.8em; } /* Increased list margins and padding */
+            li { margin-bottom: 0.4em; } /* Increased list item spacing */
             a { color: #3498db; text-decoration: none; }
-            hr { border: none; border-top: 1px solid #eee; margin: 1em 0; } /* Reduced hr margin */
-            .title { text-align: center; color: #2980b9; margin-bottom: 0.4em; }
-            .subtitle { text-align: center; color: #7f8c8d; font-weight: normal; margin-bottom: 0.6em; }
-            .list-paragraph { margin-left: 0.8em; margin-bottom: 0.4em; }
+            hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+            .title { text-align: center; color: #2980b9; margin-bottom: 0.6em; }
+            .subtitle { text-align: center; color: #7f8c8d; font-weight: normal; margin-bottom: 0.8em; }
+            .list-paragraph { margin-left: 1em; margin-bottom: 0.6em; }
+            /* Ensure text doesn't get cut off at edges */
+            pre, code { white-space: pre-wrap; word-break: break-word; }
           `;
           tempDiv.appendChild(styleTag);
 
@@ -188,7 +190,7 @@ export const convertDocxToPDF = async (docFile) => {
             // Get dimensions
             const pdfWidth = pdf.internal.pageSize.getWidth();
             const pdfHeight = pdf.internal.pageSize.getHeight();
-            const margin = 30; // Reduced margin for better space utilization
+            const margin = 40; // Increased margin to prevent text cut-off
 
             // Get the total height of the content
             const totalHeight = tempDiv.offsetHeight;
@@ -467,9 +469,9 @@ export const convertTextToPDF = async (textFile) => {
         // Set document properties
         const pageWidth = pdf.internal.pageSize.getWidth();
         const pageHeight = pdf.internal.pageSize.getHeight();
-        const margin = 15; // Reduced margin for better space utilization
-        const titleMargin = 20; // Reduced space after title
-        const lineHeight = 1.1; // Slightly reduced line height for better space utilization
+        const margin = 20; // Increased margin to prevent text cut-off
+        const titleMargin = 25; // Increased space after title
+        const lineHeight = 1.2; // Increased line height to prevent text cut-off
 
         // Determine optimal font size based on text length and content density
         let fontSize = 11; // Default font size (slightly reduced)
@@ -483,11 +485,11 @@ export const convertTextToPDF = async (textFile) => {
         const avgLineLength = text.split(/\r?\n/).reduce((sum, line) => sum + line.length, 0) /
                              Math.max(1, text.split(/\r?\n/).length);
 
-        // For dense text with long lines, use smaller font and tighter spacing
+        // For dense text with long lines, adjust formatting to prevent cut-off
         let adjustedLineHeight = lineHeight;
         if (avgLineLength > 100) {
-          fontSize -= 0.5;
-          adjustedLineHeight = 1.05;
+          fontSize = Math.max(fontSize - 0.5, 9); // Ensure font doesn't get too small
+          adjustedLineHeight = 1.15; // Increased line height for better readability
         }
 
         // Add a compact title
@@ -499,8 +501,8 @@ export const convertTextToPDF = async (textFile) => {
         pdf.setFontSize(fontSize);
         pdf.setTextColor(0, 0, 0);
 
-        // Calculate available width for text - use more of the page width
-        const textWidth = pageWidth - (margin * 1.8);
+        // Calculate available width for text - ensure text fits within margins
+        const textWidth = pageWidth - (margin * 2.2); // Increased margin multiplier to prevent text cut-off
 
         // Process the text content
         // More intelligent paragraph detection
@@ -534,8 +536,8 @@ export const convertTextToPDF = async (textFile) => {
             // Calculate space needed for this text block
             const blockHeight = splitLines.length * fontSize * adjustedLineHeight;
 
-            // Check if we need to add a new page
-            if (currentY + blockHeight > pageHeight - margin) {
+            // Check if we need to add a new page - add extra buffer space to prevent cut-off
+            if (currentY + blockHeight > pageHeight - (margin * 1.5)) {
               pdf.addPage();
               currentY = margin; // Reset Y position for new page
               isFirstParagraphOnPage = true;
@@ -570,8 +572,8 @@ export const convertTextToPDF = async (textFile) => {
               estimatedHeight += splitLines.length * fontSize * adjustedLineHeight;
             }
 
-            // Add a new page if the next paragraph won't fit
-            if (currentY + estimatedHeight > pageHeight - margin) {
+            // Add a new page if the next paragraph won't fit - add extra buffer space
+            if (currentY + estimatedHeight > pageHeight - (margin * 1.5)) {
               pdf.addPage();
               currentY = margin;
               isFirstParagraphOnPage = true;
@@ -622,33 +624,35 @@ export const convertHtmlToPDF = async (htmlFile) => {
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = htmlContent;
 
-        // Apply styling for better rendering with optimized space usage
+        // Apply styling for better rendering with proper spacing to prevent text cut-off
         tempDiv.style.width = '8.27in'; // A4 width
-        tempDiv.style.padding = '0.35in'; // Reduced padding for better space utilization
+        tempDiv.style.padding = '0.5in'; // Increased padding to prevent text cut-off
         tempDiv.style.backgroundColor = 'white';
         tempDiv.style.position = 'absolute';
         tempDiv.style.left = '-9999px';
         tempDiv.style.fontFamily = 'Arial, sans-serif';
-        tempDiv.style.lineHeight = '1.3'; // Slightly reduced line height
-        tempDiv.style.fontSize = '11pt'; // Slightly smaller font size
+        tempDiv.style.lineHeight = '1.4'; // Increased line height to prevent text cut-off
+        tempDiv.style.fontSize = '11pt'; // Maintain readable font size
 
         // Add CSS to ensure text wrapping and proper formatting
         const styleTag = document.createElement('style');
         styleTag.textContent = `
           * { box-sizing: border-box; }
           body, html { margin: 0; padding: 0; }
-          p { margin-bottom: 0.6em; text-align: justify; } /* Reduced paragraph margin */
-          img { max-width: 100%; height: auto; }
-          table { width: 100%; border-collapse: collapse; margin: 0.7em 0; } /* Reduced table margin */
-          td, th { padding: 6px; border: 1px solid #ddd; } /* Reduced cell padding */
-          pre, code { white-space: pre-wrap; font-size: 0.9em; background: #f5f5f5; padding: 0.2em; }
-          h1, h2, h3, h4, h5, h6 { page-break-after: avoid; margin-top: 0.8em; margin-bottom: 0.4em; } /* Reduced heading margins */
-          h1 { font-size: 1.6em; } /* Slightly smaller headings */
-          h2 { font-size: 1.4em; }
-          h3 { font-size: 1.2em; }
+          p { margin-bottom: 0.8em; text-align: justify; } /* Increased paragraph margin */
+          img { max-width: 95%; height: auto; } /* Slightly reduced max width to prevent overflow */
+          table { width: 95%; border-collapse: collapse; margin: 1em 0; } /* Reduced width to prevent overflow */
+          td, th { padding: 8px; border: 1px solid #ddd; }
+          pre, code { white-space: pre-wrap; font-size: 0.9em; background: #f5f5f5; padding: 0.3em; word-break: break-word; }
+          h1, h2, h3, h4, h5, h6 { page-break-after: avoid; margin-top: 1em; margin-bottom: 0.5em; } /* Increased heading margins */
+          h1 { font-size: 1.7em; } /* Slightly larger headings for better readability */
+          h2 { font-size: 1.5em; }
+          h3 { font-size: 1.3em; }
           h4, h5, h6 { font-size: 1.1em; }
-          ul, ol { padding-left: 1.5em; margin-top: 0.4em; margin-bottom: 0.6em; } /* Reduced list margins and padding */
-          li { margin-bottom: 0.2em; } /* Reduced list item spacing */
+          ul, ol { padding-left: 2em; margin-top: 0.5em; margin-bottom: 0.8em; } /* Increased list margins and padding */
+          li { margin-bottom: 0.4em; } /* Increased list item spacing */
+          /* Ensure text doesn't get cut off at edges */
+          div, p, span { overflow-wrap: break-word; word-wrap: break-word; }
         `;
         tempDiv.appendChild(styleTag);
 
@@ -659,7 +663,7 @@ export const convertHtmlToPDF = async (htmlFile) => {
           const pdf = new jsPDF('p', 'pt', 'a4');
           const pdfWidth = pdf.internal.pageSize.getWidth();
           const pdfHeight = pdf.internal.pageSize.getHeight();
-          const margin = 30; // Reduced margin for better space utilization
+          const margin = 40; // Increased margin to prevent text cut-off
 
           // Get the total height of the content
           const totalHeight = element.offsetHeight;
