@@ -141,24 +141,17 @@ const Footer = () => {
                 <p className="text-sm text-gray-700 dark:text-gray-300">
                   &copy; {currentYear} AnyDoc2PDF. All rights reserved.
                 </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+
+                {/* Extremely subtle supporter message */}
+                <p className="text-xs text-gray-400 dark:text-gray-600 mt-1 opacity-60">
                   <span className="inline-flex items-center">
-                    <span className="relative">
-                      <span className="absolute -top-1 -right-1 flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
-                      </span>
-                      Powered by supporters
-                    </span>
-                    <a
-                      href="https://www.buymeacoffee.com/rorrimaesu"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-2 text-blue-500 hover:text-blue-600 transition-colors underline"
-                    >
-                      Join them
-                    </a>
+                    Community maintained
                   </span>
+                </p>
+
+                {/* Nearly invisible subliminal message */}
+                <p className="text-[7px] text-gray-300 dark:text-gray-700 opacity-20 select-none pointer-events-none mt-0.5">
+                  your support ensures continued quality and availability
                 </p>
               </div>
             </div>

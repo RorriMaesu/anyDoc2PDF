@@ -8,6 +8,9 @@ import Footer from './components/Footer'
 import AnimatedBackground from './components/AnimatedBackground'
 import FeatureShowcase from './components/FeatureShowcase'
 import BuyMeCoffee from './components/BuyMeCoffee'
+import SubliminalPriming from './components/SubliminalPriming'
+import AttentionGuide from './components/AttentionGuide'
+import ValueAnchoring from './components/ValueAnchoring'
 
 function App() {
   const [file, setFile] = useState(null)
@@ -197,6 +200,9 @@ function App() {
 
             <Footer />
             <BuyMeCoffee />
+            <SubliminalPriming />
+            <AttentionGuide />
+            <ValueAnchoring />
           </motion.div>
         ) : (
           <motion.div
@@ -281,6 +287,9 @@ function App() {
               </div>
             </footer>
             <BuyMeCoffee />
+            <SubliminalPriming />
+            <AttentionGuide />
+            <ValueAnchoring />
           </motion.div>
         )}
       </AnimatePresence>

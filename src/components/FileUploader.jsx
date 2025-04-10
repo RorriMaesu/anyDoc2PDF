@@ -123,19 +123,22 @@ const FileUploader = ({ onFileUpload }) => {
             <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
               or
             </p>
-            {/* Social proof and scarcity indicators */}
+            {/* Subtle value indicators with subliminal messaging */}
             <div className="mt-2 flex items-center justify-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-1 animate-pulse"></div>
-                <span>1,293 conversions today</span>
+                <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1 opacity-80"></div>
+                <span className="opacity-80">Premium quality</span>
               </div>
-              <span>•</span>
+              <span className="opacity-60">•</span>
               <div className="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-yellow-500 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>100% free service</span>
+                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-1 opacity-80"></div>
+                <span className="opacity-80">Supported by users</span>
               </div>
+            </div>
+
+            {/* Nearly invisible subliminal message */}
+            <div className="mt-1 text-[8px] text-gray-300 dark:text-gray-700 opacity-20 select-none pointer-events-none">
+              your support makes this possible
             </div>
             <motion.button
               type="button"
