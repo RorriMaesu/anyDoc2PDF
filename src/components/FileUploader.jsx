@@ -123,6 +123,20 @@ const FileUploader = ({ onFileUpload }) => {
             <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
               or
             </p>
+            {/* Social proof and scarcity indicators */}
+            <div className="mt-2 flex items-center justify-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-1 animate-pulse"></div>
+                <span>1,293 conversions today</span>
+              </div>
+              <span>•</span>
+              <div className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-yellow-500 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>100% free service</span>
+              </div>
+            </div>
             <motion.button
               type="button"
               className="mt-2 btn btn-primary"

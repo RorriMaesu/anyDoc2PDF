@@ -137,9 +137,30 @@ const Footer = () => {
               <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center mr-3">
                 <span className="text-white font-bold text-xs">ADP</span>
               </div>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
-                &copy; {currentYear} AnyDoc2PDF. All rights reserved.
-              </p>
+              <div>
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  &copy; {currentYear} AnyDoc2PDF. All rights reserved.
+                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  <span className="inline-flex items-center">
+                    <span className="relative">
+                      <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+                      </span>
+                      Powered by supporters
+                    </span>
+                    <a
+                      href="https://www.buymeacoffee.com/rorrimaesu"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-2 text-blue-500 hover:text-blue-600 transition-colors underline"
+                    >
+                      Join them
+                    </a>
+                  </span>
+                </p>
+              </div>
             </div>
 
             <div className="mt-6 md:mt-0 flex flex-wrap justify-center space-x-5 text-sm text-gray-500 dark:text-gray-400">

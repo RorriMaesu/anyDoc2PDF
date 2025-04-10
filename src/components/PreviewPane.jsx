@@ -139,11 +139,11 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
           whileHover={{ x: -3 }}
           whileTap={{ scale: 0.97 }}
         >
-          <motion.svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="h-2 w-2 mr-1.5 text-blue-500" 
-            fill="none" 
-            viewBox="0 0 24 24" 
+          <motion.svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-2 w-2 mr-1.5 text-blue-500"
+            fill="none"
+            viewBox="0 0 24 24"
             stroke="currentColor"
             initial={{ x: 0 }}
             animate={{ x: [0, -3, 0] }}
@@ -184,8 +184,8 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
           type="button"
           onClick={handleDownload}
           className={`px-4 py-2 ${
-            isDownloading 
-              ? 'bg-gray-400 dark:bg-gray-600' 
+            isDownloading
+              ? 'bg-gray-400 dark:bg-gray-600'
               : 'bg-gradient-to-r from-blue-500 to-indigo-600 hover:shadow-md hover:shadow-blue-500/30'
           } text-white text-sm rounded-lg flex items-center shadow transition-all duration-300`}
           disabled={isDownloading || isConverting}
@@ -216,8 +216,8 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
             onClick={handlePrevPage}
             disabled={currentPage <= 1 || isConverting}
             className={`p-2 rounded-full ${
-              currentPage <= 1 || isConverting 
-                ? 'opacity-40 cursor-not-allowed' 
+              currentPage <= 1 || isConverting
+                ? 'opacity-40 cursor-not-allowed'
                 : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200'} transition-colors`
             }`}
             title="Previous Page"
@@ -237,8 +237,8 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
             onClick={handleNextPage}
             disabled={currentPage >= totalPages || isConverting}
             className={`p-2 rounded-full ${
-              currentPage >= totalPages || isConverting 
-                ? 'opacity-40 cursor-not-allowed' 
+              currentPage >= totalPages || isConverting
+                ? 'opacity-40 cursor-not-allowed'
                 : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200'} transition-colors`
             }`}
             title="Next Page"
@@ -257,8 +257,8 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
             onClick={handleZoomOut}
             disabled={zoomLevel <= 50 || isConverting}
             className={`p-2 rounded-full ${
-              zoomLevel <= 50 || isConverting 
-                ? 'opacity-40 cursor-not-allowed' 
+              zoomLevel <= 50 || isConverting
+                ? 'opacity-40 cursor-not-allowed'
                 : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200'} transition-colors`
             }`}
             title="Zoom Out"
@@ -278,8 +278,8 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
             onClick={handleZoomReset}
             disabled={zoomLevel === 100 || isConverting}
             className={`text-xs px-2 py-1 rounded ${
-              zoomLevel === 100 || isConverting 
-                ? 'opacity-40 cursor-not-allowed' 
+              zoomLevel === 100 || isConverting
+                ? 'opacity-40 cursor-not-allowed'
                 : `${darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-blue-50 text-blue-700 hover:bg-blue-100'} transition-colors`
             }`}
             title="Reset Zoom"
@@ -293,8 +293,8 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
             onClick={handleZoomIn}
             disabled={zoomLevel >= 200 || isConverting}
             className={`p-2 rounded-full ${
-              zoomLevel >= 200 || isConverting 
-                ? 'opacity-40 cursor-not-allowed' 
+              zoomLevel >= 200 || isConverting
+                ? 'opacity-40 cursor-not-allowed'
                 : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200'} transition-colors`
             }`}
             title="Zoom In"
@@ -354,17 +354,18 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
         ) : previewUrl ? (
           <div className="h-full w-full overflow-auto flex justify-center">
             {/* PDF container that handles overflow and positioning */}
-            <div 
+            <div
               ref={pdfContainerRef}
+              data-pdf-element="true"
               className={`relative ${darkMode ? 'bg-gray-900' : 'bg-white'} shadow-xl max-w-5xl w-full mx-auto rounded-md my-4 overflow-hidden`}
-              style={{ 
+              style={{
                 height: 'calc(100% - 2rem)',
                 overflow: 'auto'
               }}
             >
               {/* Document decoration */}
               <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
-              
+
               {/* This wrapper div applies the zoom transform */}
               <div
                 ref={pdfViewerRef}

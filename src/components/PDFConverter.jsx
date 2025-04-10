@@ -4,18 +4,18 @@ import { motion } from 'framer-motion'
 const PDFConverter = ({ file, onConvert, isConverting }) => {
   const formatBytes = (bytes, decimals = 2) => {
     if (!bytes) return '0 Bytes'
-    
+
     const k = 1024
     const dm = decimals < 0 ? 0 : decimals
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
     const i = Math.floor(Math.log(bytes) / Math.log(k))
-    
+
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
   }
-  
+
   const getFileIcon = (fileName) => {
     const extension = fileName.split('.').pop().toLowerCase()
-    
+
     switch (extension) {
       case 'doc':
       case 'docx':
@@ -94,13 +94,13 @@ const PDFConverter = ({ file, onConvert, isConverting }) => {
         )
     }
   }
-  
+
   return (
     <div className="flex flex-col">
       <div className="relative bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700 shadow-sm">
         <div className="flex items-start">
           {getFileIcon(file.name)}
-          
+
           <div className="ml-4 flex-1">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between">
               <div>
@@ -111,9 +111,21 @@ const PDFConverter = ({ file, onConvert, isConverting }) => {
                   <span>{formatBytes(file.size)}</span>
                   <span className="mx-2">•</span>
                   <span>{file.type || 'Unknown type'}</span>
+
+                  {/* Supporter badge - creates reciprocity and social proof */}
+                  {Math.random() > 0.5 && (
+                    <div className="ml-3 flex items-center">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gradient-to-r from-amber-50 to-yellow-100 dark:from-amber-900/30 dark:to-yellow-900/30 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/30">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Supporter
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
-              
+
               <motion.button
                 type="button"
                 onClick={onConvert}
@@ -143,7 +155,7 @@ const PDFConverter = ({ file, onConvert, isConverting }) => {
                 )}
               </motion.button>
             </div>
-            
+
             {isConverting && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
@@ -151,14 +163,14 @@ const PDFConverter = ({ file, onConvert, isConverting }) => {
                 className="mt-4"
               >
                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                  <motion.div 
+                  <motion.div
                     className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
                     initial={{ width: '5%' }}
-                    animate={{ 
+                    animate={{
                       width: ['5%', '30%', '65%', '85%', '95%'],
                     }}
-                    transition={{ 
-                      duration: 2, 
+                    transition={{
+                      duration: 2,
                       ease: "easeInOut",
                     }}
                   />
@@ -171,7 +183,7 @@ const PDFConverter = ({ file, onConvert, isConverting }) => {
           </div>
         </div>
       </div>
-      
+
       <div className="mt-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 p-4 border border-blue-100 dark:border-blue-800/40">
@@ -189,7 +201,7 @@ const PDFConverter = ({ file, onConvert, isConverting }) => {
               </div>
             </div>
           </div>
-          
+
           <div className="rounded-lg bg-green-50 dark:bg-green-900/20 p-4 border border-green-100 dark:border-green-800/40">
             <div className="flex">
               <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-800/50 flex items-center justify-center flex-shrink-0">

@@ -1,8 +1,79 @@
 {
-  "hash": "dd5f0bc2",
+  "hash": "b49227e1",
   "configHash": "305b622a",
-  "lockfileHash": "c386a216",
-  "browserHash": "c25f85c9",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "cb263a88",
+  "browserHash": "1f5e0772",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "fdbee811",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "f3b1fa82",
+      "needsInterop": true
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "971264b7",
+      "needsInterop": false
+    },
+    "jspdf": {
+      "src": "../../node_modules/jspdf/dist/jspdf.es.min.js",
+      "file": "jspdf.js",
+      "fileHash": "04dee406",
+      "needsInterop": false
+    },
+    "jspdf-autotable": {
+      "src": "../../node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.mjs",
+      "file": "jspdf-autotable.js",
+      "fileHash": "0960bb82",
+      "needsInterop": false
+    },
+    "pdf-lib": {
+      "src": "../../node_modules/pdf-lib/es/index.js",
+      "file": "pdf-lib.js",
+      "fileHash": "24f10442",
+      "needsInterop": false
+    },
+    "mammoth": {
+      "src": "../../node_modules/mammoth/lib/index.js",
+      "file": "mammoth.js",
+      "fileHash": "accd38da",
+      "needsInterop": true
+    },
+    "html2canvas": {
+      "src": "../../node_modules/html2canvas/dist/html2canvas.esm.js",
+      "file": "html2canvas.js",
+      "fileHash": "41df69ce",
+      "needsInterop": false
+    },
+    "file-saver": {
+      "src": "../../node_modules/file-saver/dist/FileSaver.min.js",
+      "file": "file-saver.js",
+      "fileHash": "800eb9d4",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "purify.es-W7LXBY7T": {
+      "file": "purify__es-W7LXBY7T.js"
+    },
+    "index.es-K7OFLZV6": {
+      "file": "index__es-K7OFLZV6.js"
+    },
+    "chunk-KL4SNAOQ": {
+      "file": "chunk-KL4SNAOQ.js"
+    },
+    "chunk-SITVF2AJ": {
+      "file": "chunk-SITVF2AJ.js"
+    },
+    "chunk-PLDDJCW6": {
+      "file": "chunk-PLDDJCW6.js"
+    }
+  }
 }
