@@ -106,9 +106,9 @@ const FileUploader = ({ onFileUpload }) => {
           accept=".doc,.docx,.xls,.xlsx,.ppt,.pptx,.pdf,.txt,.html,.csv,.jpg,.jpeg,.png,.gif,.bmp,.tiff"
         />
 
-        <div className="flex flex-col items-center justify-center space-y-4" onClick={handleButtonClick}>
+        <div className="flex flex-col items-center justify-center space-y-4">
           <motion.div
-            className="w-20 h-20 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center pointer-events-none"
+            className="w-20 h-20 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -117,7 +117,7 @@ const FileUploader = ({ onFileUpload }) => {
             </svg>
           </motion.div>
 
-          <div className="text-center pointer-events-none">
+          <div className="text-center">
             <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
               {isDragging ? 'Drop your file here' : 'Drag & drop your file here'}
             </h3>
@@ -151,7 +151,7 @@ const FileUploader = ({ onFileUpload }) => {
             </div>
             <motion.button
               type="button"
-              className="mt-2 btn btn-primary button-press-effect pointer-events-auto"
+              className="mt-2 btn btn-primary button-press-effect"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               onClick={(e) => {
