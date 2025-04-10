@@ -14,6 +14,7 @@ import ValueAnchoring from './components/ValueAnchoring'
 import BernaysPriming from './components/BernaysPriming'
 import VisualFraming from './components/VisualFraming'
 import LinguisticFraming from './components/LinguisticFraming'
+import SEOOptimization from './components/SEOOptimization'
 
 function App() {
   const [file, setFile] = useState(null)
@@ -120,11 +121,18 @@ function App() {
                       </span>
                     </div>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 leading-tight">
-                      Convert Any Document to PDF
+                      Free Online Document to PDF Converter
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto">
-                      Fast, secure, and high-quality conversions. No registration required.
+                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+                      Convert Word, Excel, PowerPoint, Images and more to high-quality PDF. Fast, secure, and 100% free.
                     </p>
+                    <div className="flex flex-wrap justify-center gap-3 mb-8 text-sm text-gray-600 dark:text-gray-400">
+                      <span className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">Word to PDF</span>
+                      <span className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">Excel to PDF</span>
+                      <span className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">PowerPoint to PDF</span>
+                      <span className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">Image to PDF</span>
+                      <span className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">No Registration</span>
+                    </div>
                   </motion.div>
 
                   <motion.div
@@ -209,6 +217,7 @@ function App() {
             <BernaysPriming />
             <VisualFraming />
             <LinguisticFraming />
+            <SEOOptimization />
           </motion.div>
         ) : (
           <motion.div
@@ -299,6 +308,7 @@ function App() {
             <BernaysPriming />
             <VisualFraming />
             <LinguisticFraming />
+            <SEOOptimization />
           </motion.div>
         )}
       </AnimatePresence>

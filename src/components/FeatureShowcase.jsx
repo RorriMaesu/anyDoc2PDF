@@ -4,28 +4,28 @@ import { motion } from 'framer-motion'
 const FeatureShowcase = () => {
   const features = [
     {
-      title: 'Lightning Fast',
-      description: 'Convert documents in seconds with our optimized processing engine.'
+      title: 'Word to PDF Converter',
+      description: 'Convert Word documents (.docx, .doc) to high-quality PDF files with perfect formatting.'
     },
     {
-      title: 'Secure & Private',
-      description: 'Your files never leave your browser. All processing happens locally.'
+      title: 'Excel to PDF Converter',
+      description: 'Transform Excel spreadsheets (.xlsx, .xls) into professional PDF documents with preserved tables.'
     },
     {
-      title: 'Professional Quality',
-      description: 'Get pixel-perfect PDFs with preserved formatting and high-resolution output.'
+      title: 'PowerPoint to PDF Converter',
+      description: 'Convert PowerPoint presentations (.pptx, .ppt) to PDF with perfect slide layouts and graphics.'
     },
     {
-      title: 'No Installation',
-      description: 'Works directly in your browser. No downloads, plugins, or software required.'
+      title: 'Image to PDF Converter',
+      description: 'Convert JPG, PNG, GIF and other image formats to PDF with high resolution quality.'
     },
     {
-      title: 'Batch Processing',
-      description: 'Convert multiple files at once to save time on large projects.'
+      title: '100% Free PDF Converter',
+      description: 'No hidden fees, no premium features, no watermarks. Completely free PDF conversion tool.'
     },
     {
-      title: 'Customization Options',
-      description: 'Adjust quality, page size, and compression to meet your specific needs.'
+      title: 'Private & Secure Conversion',
+      description: 'Your files never leave your browser. All processing happens locally for maximum privacy.'
     },
   ]
 
@@ -39,7 +39,7 @@ const FeatureShowcase = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Powerful Features, <span className="text-primary-600 dark:text-primary-400">Simple to Use</span>
+          Free Document to PDF Conversion <span className="text-primary-600 dark:text-primary-400">Tools</span>
         </motion.h2>
         <motion.p
           className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
@@ -48,7 +48,7 @@ const FeatureShowcase = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Convert your documents to PDF with professional quality and advanced features.
+          Convert Word, Excel, PowerPoint, images and more to high-quality PDF files with our free online tools.
         </motion.p>
       </div>
 

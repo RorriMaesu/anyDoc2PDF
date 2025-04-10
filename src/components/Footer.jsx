@@ -139,8 +139,17 @@ const Footer = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-700 dark:text-gray-300">
-                  &copy; {currentYear} AnyDoc2PDF. All rights reserved.
+                  &copy; {currentYear} AnyDoc2PDF - Free Online Document to PDF Converter. All rights reserved.
                 </p>
+
+                {/* SEO-rich footer links */}
+                <div className="mt-2 text-xs text-gray-500 dark:text-gray-500 flex flex-wrap gap-x-4 gap-y-1">
+                  <a href="#" className="hover:text-blue-500 transition-colors">Word to PDF</a>
+                  <a href="#" className="hover:text-blue-500 transition-colors">Excel to PDF</a>
+                  <a href="#" className="hover:text-blue-500 transition-colors">PPT to PDF</a>
+                  <a href="#" className="hover:text-blue-500 transition-colors">Image to PDF</a>
+                  <a href="#" className="hover:text-blue-500 transition-colors">Free PDF Converter</a>
+                </div>
 
                 {/* Bernays-inspired social proof message */}
                 <p className="text-xs text-gray-400 dark:text-gray-600 mt-1 opacity-50">
