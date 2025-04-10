@@ -85,7 +85,7 @@ const FileUploader = ({ onFileUpload }) => {
   return (
     <div className="w-full">
       <motion.div
-        className={`relative border-2 border-dashed rounded-lg p-8 transition-colors cursor-pointer ${
+        className={`relative border-2 border-dashed rounded-lg p-8 transition-colors cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 ${
           isDragging
             ? 'border-primary bg-primary/5 dark:bg-primary/10'
             : 'border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary'
@@ -106,9 +106,9 @@ const FileUploader = ({ onFileUpload }) => {
           accept=".doc,.docx,.xls,.xlsx,.ppt,.pptx,.pdf,.txt,.html,.csv,.jpg,.jpeg,.png,.gif,.bmp,.tiff"
         />
 
-        <div className="flex flex-col items-center justify-center space-y-4">
+        <div className="flex flex-col items-center justify-center space-y-4" onClick={handleButtonClick}>
           <motion.div
-            className="w-20 h-20 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center"
+            className="w-20 h-20 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center pointer-events-none"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -117,7 +117,7 @@ const FileUploader = ({ onFileUpload }) => {
             </svg>
           </motion.div>
 
-          <div className="text-center">
+          <div className="text-center pointer-events-none">
             <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
               {isDragging ? 'Drop your file here' : 'Drag & drop your file here'}
             </h3>
@@ -151,10 +151,13 @@ const FileUploader = ({ onFileUpload }) => {
             </div>
             <motion.button
               type="button"
-              className="mt-2 btn btn-primary button-press-effect"
+              className="mt-2 btn btn-primary button-press-effect pointer-events-auto"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               onClick={(e) => {
+                // Stop propagation to prevent double triggering with parent onClick
+                e.stopPropagation();
+
                 // Add a ripple effect when the button is clicked
                 const button = e.currentTarget;
                 const circle = document.createElement('span');
