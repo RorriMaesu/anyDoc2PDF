@@ -17,9 +17,12 @@
 
 A premium-quality document-to-PDF converter web application that runs entirely in your browser. Convert any document format to professional-grade PDFs without uploading your files to any server - all processing happens locally in your browser for maximum privacy and security. Join the community of supporters who make this possible!
 
-## 🖼️ PDF Preview
+## 🖼️ Screenshots
 
 <div align="center">
+  <img src="public/images/lightmode.png" alt="AnyDoc2PDF Light Mode" width="80%" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;" />
+  <p><em>Clean and modern light mode interface</em></p>
+
   <img src="public/images/pdf-preview.png" alt="PDF Preview" width="80%" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
   <p><em>Interactive PDF preview with zoom controls and page navigation</em></p>
 </div>
