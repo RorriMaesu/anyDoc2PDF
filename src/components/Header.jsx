@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const Header = () => {
+const Header = ({ darkMode: propDarkMode, toggleDarkMode: propToggleDarkMode }) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [darkMode, setDarkMode] = useState(false)
+  // Use the darkMode prop if provided, otherwise use internal state
+  const [internalDarkMode, setInternalDarkMode] = useState(false)
+
+  // Use the prop if provided, otherwise use internal state
+  const darkMode = propDarkMode !== undefined ? propDarkMode : internalDarkMode
 
   useEffect(() => {
-    // Check if user prefers dark mode
-    if (localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) &&
-         window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark')
-      setDarkMode(true)
-    } else {
-      document.documentElement.classList.remove('dark')
-      setDarkMode(false)
+    // Only initialize from localStorage if we're not using props
+    if (propDarkMode === undefined) {
+      // Check if user prefers dark mode
+      if (localStorage.theme === 'dark' ||
+          (!('theme' in localStorage) &&
+           window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+        setInternalDarkMode(true)
+      } else {
+        document.documentElement.classList.remove('dark')
+        setInternalDarkMode(false)
+      }
     }
 
     const handleScroll = () => {
@@ -31,14 +38,21 @@ const Header = () => {
   }, [])
 
   const toggleDarkMode = () => {
+    // Use the prop toggle function if provided
+    if (propToggleDarkMode) {
+      propToggleDarkMode();
+      return;
+    }
+
+    // Otherwise use internal state
     if (darkMode) {
       document.documentElement.classList.remove('dark')
       localStorage.theme = 'light'
-      setDarkMode(false)
+      setInternalDarkMode(false)
     } else {
       document.documentElement.classList.add('dark')
       localStorage.theme = 'dark'
-      setDarkMode(true)
+      setInternalDarkMode(true)
     }
   }
 
