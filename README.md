@@ -11,22 +11,18 @@
   <p><em>Your support enables us to keep this tool <strong>completely free</strong> for everyone</em></p>
 </div>
 
-A premium-quality document-to-PDF converter web application that runs entirely in your browser. Convert any document format to professional-grade PDFs without uploading your files to any server - all processing happens locally in your browser for maximum privacy and security. Join the community of supporters who make this possible!
-
-## 🖼️ Screenshots
-
 <div align="center">
-  <img src="docs/screenshots/main-screen.png" alt="AnyDoc2PDF Main Screen" width="80%" />
-  <p><em>Main conversion interface with drag-and-drop functionality</em></p>
-
-  <img src="docs/screenshots/dark-mode.png" alt="AnyDoc2PDF Dark Mode" width="80%" />
-  <p><em>Dark mode for comfortable use in low-light environments</em></p>
-
-  <img src="docs/screenshots/pdf-preview.png" alt="PDF Preview" width="80%" />
-  <p><em>Interactive PDF preview with zoom and page navigation</em></p>
+  <img src="public/images/main-screen.png" alt="AnyDoc2PDF" width="90%" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
 </div>
 
-> Note: The screenshots folder will be created when you take actual screenshots of your application.
+A premium-quality document-to-PDF converter web application that runs entirely in your browser. Convert any document format to professional-grade PDFs without uploading your files to any server - all processing happens locally in your browser for maximum privacy and security. Join the community of supporters who make this possible!
+
+## 🖼️ PDF Preview
+
+<div align="center">
+  <img src="public/images/pdf-preview.png" alt="PDF Preview" width="80%" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <p><em>Interactive PDF preview with zoom controls and page navigation</em></p>
+</div>
 
 ## ✨ Features
 
