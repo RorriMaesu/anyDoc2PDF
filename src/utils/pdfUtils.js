@@ -128,7 +128,7 @@ export const convertDocxToPDF = async (docFile) => {
               "p[style-name='Intense Quote'] => blockquote.intense",
               "p[style-name='List Paragraph'] => p.list-paragraph",
               "table => table.docx-table",
-              "p:empty => ""
+              "p:empty => p"
             ]
           };
 
