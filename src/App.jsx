@@ -45,6 +45,18 @@ function App() {
     setConvertedPdf(null)
     setShowPreview(false)
     setActiveSection('convert')
+
+    // Auto-scroll to the PDFConverter section after a short delay
+    // to ensure the component has rendered
+    setTimeout(() => {
+      const pdfConverterElement = document.querySelector('.pdf-converter-section')
+      if (pdfConverterElement) {
+        pdfConverterElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        })
+      }
+    }, 100)
   }
 
   const handleConversion = async () => {
@@ -63,6 +75,18 @@ function App() {
         setConvertedPdf(file)
         setShowPreview(true)
         setActiveSection('preview')
+
+        // Auto-scroll to the preview section after a short delay
+        // to ensure the component has rendered
+        setTimeout(() => {
+          const previewElement = document.querySelector('.preview-section')
+          if (previewElement) {
+            previewElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            })
+          }
+        }, 100)
       }
     } catch (error) {
       console.error('Conversion failed:', error)
@@ -74,6 +98,17 @@ function App() {
   const handleBack = () => {
     setShowPreview(false)
     setActiveSection('convert')
+
+    // Auto-scroll back to the converter section after a short delay
+    setTimeout(() => {
+      const converterElement = document.querySelector('.pdf-converter-section')
+      if (converterElement) {
+        converterElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        })
+      }
+    }, 100)
   }
 
   // Define app-wide transition settings

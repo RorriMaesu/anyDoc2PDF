@@ -207,7 +207,7 @@ const PreviewPane = ({ file, onBack, darkMode }) => {
   }
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full preview-section">
       {/* Top navigation bar */}
       <div className={`flex justify-between items-center p-4 ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border-b`}>
         <motion.button

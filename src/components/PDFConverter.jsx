@@ -96,7 +96,7 @@ const PDFConverter = ({ file, onConvert, isConverting }) => {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col pdf-converter-section">
       <div className="relative bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700 shadow-sm">
         <div className="flex items-start">
           {getFileIcon(file.name)}

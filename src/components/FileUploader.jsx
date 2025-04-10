@@ -85,7 +85,7 @@ const FileUploader = ({ onFileUpload }) => {
   return (
     <div className="w-full">
       <motion.div
-        className={`relative border-2 border-dashed rounded-lg p-8 transition-colors ${
+        className={`relative border-2 border-dashed rounded-lg p-8 transition-colors cursor-pointer ${
           isDragging
             ? 'border-primary bg-primary/5 dark:bg-primary/10'
             : 'border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary'
@@ -96,6 +96,7 @@ const FileUploader = ({ onFileUpload }) => {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
+        onClick={handleButtonClick}
       >
         <input
           type="file"
