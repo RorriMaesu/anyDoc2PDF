@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --secondary: #8b5cf6;
+  --secondary-dark: #7c3aed;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter var', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f9fafb; /* Tailwind: bg-gray-50 */
+  color: #111827; /* Tailwind: text-gray-900 */
+}
+
+.dark body {
+  background-color: #111827; /* Tailwind: bg-gray-900 */
+  color: #f9fafb; /* Tailwind: text-gray-50 */
+}
+
+/* Minimal icon sizing - let Tailwind handle most */
+svg {
+  display: inline-block; /* Ensure SVGs behave like inline elements */
+  vertical-align: middle; /* Align icons nicely with text */
+}
+
+/* Keep PDF viewer styles as they are less likely to cause issues */
+.pdf-viewer-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+  overflow: auto !important;
+  padding: 1rem;
+}
+
+.pdf-viewer-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.pdf-viewer-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pdf-viewer-container::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 20px;
+}
+
+.dark .pdf-viewer-container::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 85, 99, 0.5);
+}
